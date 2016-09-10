@@ -1,0 +1,6 @@
+*.pyc
+__pychache__/
+.eggs/
+.cache/
+.venv/
+.tox/
