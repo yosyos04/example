@@ -15,3 +15,7 @@ RUN apt-get update -y && \
 
 # Define cmd
 CMD ["/bin/bash"]
+# Note: If instead of 'docker run example python -m example' which is LONG,
+#   you would like to run 'docker run example', uncomment the ENTRYPOINT line
+#   below and comment the CMD line above.
+# ENTRYPOINT ["/usr/bin/python", "-m", "example"]
