@@ -19,23 +19,23 @@ To install the example package, clone it from GitHub and run its ``setup.py`` sc
 Execution
 ---------
 
-To execute the example package, run ``python -m example``.
+To execute the example package, run ``docker run example``.
 
 .. code-block:: bash
     
-   $ python -m example
+   $ docker run example
    USAGE: python -m example <foo|bar>
 
 - The ``foo`` argument runs a Foo instance.
 
   .. code-block:: bash
      
-     $ python -m example foo
+     $ docker run example foo
      foo
 
 - The ``bar`` argument runs a Bar instance.
 
   .. code-block:: bash
      
-     $ python -m example bar
+     $ docker run example bar
      bar
