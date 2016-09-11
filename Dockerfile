@@ -1,14 +1,17 @@
 FROM ubuntu:16.10
 
-# install python, pip, and virtualenv
+SHELL ["/bin/bash", "-c"]
+
+# Define run directory and copy the source files
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+
+# Install python, pip, and pytest
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y python python-dev python-pip && \
-    pip install --upgrade pip virtualenv
+    pip install pytest
 
-# create virtual environment with dependencies
-RUN virtualenv --prompt="\[\033[36m\]\$(basename \$(dirname \$VIRTUAL_ENV)) \[\033[0m\]" .venv &&
-    .venv/bin/pip install pytest &&
-    find -name 'site-packages' -exec bash -c 'echo $(realpath --relative-to={} .) > {}/self.pth' \;
-
-CMD [ 'python', '-m', 'example' ]
+# Define cmd
+CMD ["/bin/bash"]
