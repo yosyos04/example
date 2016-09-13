@@ -1,12 +1,5 @@
 #!/bin/bash
+cd "${0%/*}"  # Sets current directory to this script's directory
+# For more info about the last line: http://stackoverflow.com/questions/3349105/how-to-set-current-working-directory-to-the-directory-of-the-script
+docker build -t example .
 
-# install python, pip, and virtualenv
-sudo apt-get update  -y
-sudo apt-get upgrade -y
-sudo apt-get install -y python python-dev python-pip
-sudo pip install --upgrade pip virtualenv
-
-# create virtual environment with dependencies
-virtualenv --prompt="\[\033[36m\]\$(basename \$(dirname \$VIRTUAL_ENV)) \[\033[0m\]" .venv
-.venv/bin/pip install pytest
-find -name 'site-packages' -exec bash -c 'echo $(realpath --relative-to={} .) > {}/self.pth' \;

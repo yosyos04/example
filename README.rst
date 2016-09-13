@@ -14,28 +14,29 @@ To install the example package, clone it from GitHub and run its ``setup.py`` sc
 
    $ git clone https://github.com/dan-gittik/example
    $ cd example
-   $ python setup.py install
+   $ git checkout docker
+   $ setup.sh
 
 Execution
 ---------
 
-To execute the example package, run ``python -m example``.
+To execute the example package, run ``docker run python -m example``.
 
 .. code-block:: bash
     
-   $ python -m example
+   $ docker run example python -m example
    USAGE: python -m example <foo|bar>
 
 - The ``foo`` argument runs a Foo instance.
 
   .. code-block:: bash
      
-     $ python -m example foo
+     $ docker run example python -m example foo
      foo
 
 - The ``bar`` argument runs a Bar instance.
 
   .. code-block:: bash
      
-     $ python -m example bar
+     $ docker run python -m example bar
      bar
